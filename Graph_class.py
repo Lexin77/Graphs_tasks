@@ -80,7 +80,7 @@ class Graph:
         with open(filename, 'w', encoding='utf-8') as f:
             f.write("graph G {\n  rankdir=LR;\n  node [shape=circle, style=filled, fillcolor=lightblue];\n")
             
-            # Рисуем ОРИГИНАЛЬНЫЕ ребра (не те, что остались после алгоритма)
+            # Рисуем ребра 
             drawn_edges = set()
             for edge in self.original_edges:
                 u, v = edge
@@ -96,7 +96,7 @@ class Graph:
                     f.write(f'  "{u}" -- "{v}" [{style}];\n')
                     drawn_edges.add(edge)
             
-            # Определяем роли вершин (начало/конец/середина) БЕЗ дублирования
+            # Определяем роли вершин 
             if euler_path:
                 vertex_roles = {}
                 for i, v in enumerate(euler_path):
